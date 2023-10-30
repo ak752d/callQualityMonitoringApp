@@ -1,0 +1,26 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "root",
+  "password": "1236",
+  "database": "call_quality",
+  "synchronize": true,
+  "logging": true,
+  "entities": ["dist/models/entities/*.js"],
+  "migrations": ["src/migrations/*.ts"],
+  "subscribers": ["src/subscribers/*.ts"]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
