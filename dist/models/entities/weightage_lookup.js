@@ -9,32 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.weightage_lookup = void 0;
 const typeorm_1 = require("typeorm");
-let User = class User extends typeorm_1.BaseEntity {
-    constructor() {
-        super();
-        this.contactDepartment = '';
-    }
+let weightage_lookup = class weightage_lookup extends typeorm_1.BaseEntity {
 };
-exports.User = User;
+exports.weightage_lookup = weightage_lookup;
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
-], User.prototype, "user_Id", void 0);
+    (0, typeorm_1.PrimaryColumn)(),
+    __metadata("design:type", String)
+], weightage_lookup.prototype, "Rating", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], User.prototype, "userEmail", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], User.prototype, "name", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], User.prototype, "contactDepartment", void 0);
-exports.User = User = __decorate([
-    (0, typeorm_1.Entity)(),
-    __metadata("design:paramtypes", [])
-], User);
+], weightage_lookup.prototype, "Sentiment", void 0);
+exports.weightage_lookup = weightage_lookup = __decorate([
+    (0, typeorm_1.Entity)()
+], weightage_lookup);

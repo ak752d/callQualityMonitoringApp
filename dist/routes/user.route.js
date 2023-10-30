@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const userRoutes = (userRepository) => {
     const router = express_1.default.Router();
-    // Define routes for users
-    router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    // GET: Fetch all users
+    router.get('/getAllUsers', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const users = yield userRepository.find();
             res.json(users);
@@ -26,7 +26,6 @@ const userRoutes = (userRepository) => {
             res.status(500).json({ error: 'Internal Server Error' });
         }
     }));
-    // Add more routes for users as needed
     return router;
 };
 exports.default = userRoutes;

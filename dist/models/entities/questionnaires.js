@@ -9,32 +9,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.questionnaires = void 0;
 const typeorm_1 = require("typeorm");
-let User = class User extends typeorm_1.BaseEntity {
+let questionnaires = class questionnaires extends typeorm_1.BaseEntity {
     constructor() {
         super();
-        this.contactDepartment = '';
+        this.title = "";
+        this.description = "";
+        this.createdDate = new Date();
+        this.isPublished = false;
     }
 };
-exports.User = User;
+exports.questionnaires = questionnaires;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], User.prototype, "user_Id", void 0);
+], questionnaires.prototype, "questionnaire_Id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], User.prototype, "userEmail", void 0);
+], questionnaires.prototype, "title", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], User.prototype, "name", void 0);
+], questionnaires.prototype, "description", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], User.prototype, "contactDepartment", void 0);
-exports.User = User = __decorate([
+    (0, typeorm_1.Column)({ default: () => "CURRENT_TIMESTAMP" }),
+    __metadata("design:type", Date)
+], questionnaires.prototype, "createdDate", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ default: false }),
+    __metadata("design:type", Boolean)
+], questionnaires.prototype, "isPublished", void 0);
+exports.questionnaires = questionnaires = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [])
-], User);
+], questionnaires);
