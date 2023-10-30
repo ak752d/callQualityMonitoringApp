@@ -8,25 +8,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const callsRoutes = (callRepository) => {
-    const router = express_1.default.Router();
-    // Define routes for calls
-    router.get('/getAllCalls', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getAllQuestionnaires = void 0;
+const typeorm_1 = require("typeorm");
+const QuestionnairesService_1 = require("../services/QuestionnairesService");
+const Questionnaires_1 = require("../models/entities/Questionnaires");
+const questionnairesRepository = (0, typeorm_1.getRepository)(Questionnaires_1.questionnaires);
+const questionnairesService = new QuestionnairesService_1.QuestionnairesService(questionnairesRepository);
+function getAllQuestionnaires(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
         try {
-            const calls = yield callRepository.find();
-            res.json(calls);
+            const questionnaires = yield questionnairesService.getAllQuestionnaires();
+            res.status(200).json(questionnaires);
         }
         catch (error) {
-            console.error('Error fetching calls:', error);
-            res.status(500).json({ error: 'Internal Server Error' });
+            res.status(500).json({ error: 'Internal server error' });
         }
-    }));
-    // Add more routes for calls as needed
-    return router;
-};
-exports.default = callsRoutes;
+    });
+}
+exports.getAllQuestionnaires = getAllQuestionnaires;

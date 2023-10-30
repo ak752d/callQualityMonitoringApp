@@ -13,20 +13,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const callsRoutes = (callRepository) => {
+const weightageLookupRoutes = (weightageLookupRepository) => {
     const router = express_1.default.Router();
-    // Define routes for calls
-    router.get('/getAllCalls', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    router.get("/getAllweightage_lookup", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const calls = yield callRepository.find();
-            res.json(calls);
+            const weightageLookupData = yield weightageLookupRepository.find();
+            res.json(weightageLookupData);
         }
         catch (error) {
-            console.error('Error fetching calls:', error);
-            res.status(500).json({ error: 'Internal Server Error' });
+            console.error("Error fetching Weightage_Lookup data:", error);
+            res.status(500).json({ error: "Internal Server Error" });
         }
     }));
-    // Add more routes for calls as needed
     return router;
 };
-exports.default = callsRoutes;
+exports.default = weightageLookupRoutes;

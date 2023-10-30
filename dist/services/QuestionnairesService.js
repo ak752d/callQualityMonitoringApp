@@ -9,16 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CallsService = void 0;
-class CallsService {
-    constructor(callRepository) {
-        this.callRepository = callRepository;
+exports.QuestionnairesService = void 0;
+class QuestionnairesService {
+    constructor(questionnairesRepository) {
+        this.questionnairesRepository = questionnairesRepository;
     }
-    getAllCalls() {
+    getAllQuestionnaires() {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.callRepository.find();
+            return this.questionnairesRepository.find();
         });
     }
 }
-exports.CallsService = CallsService;
-exports.default = CallsService;
+exports.QuestionnairesService = QuestionnairesService;
+exports.default = QuestionnairesService;

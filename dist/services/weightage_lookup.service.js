@@ -9,16 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CallsService = void 0;
-class CallsService {
-    constructor(callRepository) {
-        this.callRepository = callRepository;
+exports.Weightage_lookupService = void 0;
+const weightage_lookup_1 = require("../models/entities/weightage_lookup");
+class Weightage_lookupService {
+    constructor(weightageLookupRepository) {
+        this.weightageLookupRepository = weightageLookupRepository;
     }
-    getAllCalls() {
+    getAllWeightageLookup() {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.callRepository.find();
+            return this.weightageLookupRepository.find();
         });
     }
 }
-exports.CallsService = CallsService;
-exports.default = CallsService;
+exports.Weightage_lookupService = Weightage_lookupService;
+exports.default = weightage_lookup_1.weightage_lookup;

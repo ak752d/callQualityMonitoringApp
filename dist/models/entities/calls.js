@@ -9,45 +9,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.calls = void 0;
+exports.Calls = void 0;
 const typeorm_1 = require("typeorm");
-let calls = class calls extends typeorm_1.BaseEntity {
+let Calls = class Calls extends typeorm_1.BaseEntity {
     constructor() {
         super();
-        this.is_answered = false; // Initialize in the constructor
-        this.rating = 0; // Initialize in the constructor
+        this.startTime = new Date(); // Initialize with the current date and time
+        this.end_Time = new Date(); // Initialize with the current date and time
+        this.is_Answered = false; // Initialize with a default value
+        this.rating = 0; // Initialize with a default value
     }
 };
-exports.calls = calls;
+exports.Calls = Calls;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], calls.prototype, "Call_Id", void 0);
+], Calls.prototype, "call_Id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
-], calls.prototype, "user_id", void 0);
+], Calls.prototype, "question_Id", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", Number)
-], calls.prototype, "question_id", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ default: () => "CURRENT_TIMESTAMP" }) // Set default to current timestamp
+    ,
     __metadata("design:type", Date)
-], calls.prototype, "start_time", void 0);
+], Calls.prototype, "startTime", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ default: () => "CURRENT_TIMESTAMP" }) // Set default to current timestamp
+    ,
     __metadata("design:type", Date)
-], calls.prototype, "end_time", void 0);
+], Calls.prototype, "end_Time", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ default: false }) // Set default to false
+    ,
     __metadata("design:type", Boolean)
-], calls.prototype, "is_answered", void 0);
+], Calls.prototype, "is_Answered", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ default: 0 }) // Set default to 0
+    ,
     __metadata("design:type", Number)
-], calls.prototype, "rating", void 0);
-exports.calls = calls = __decorate([
+], Calls.prototype, "rating", void 0);
+exports.Calls = Calls = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [])
-], calls);
+], Calls);

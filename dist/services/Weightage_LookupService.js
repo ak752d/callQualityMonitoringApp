@@ -9,16 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CallsService = void 0;
-class CallsService {
-    constructor(callRepository) {
-        this.callRepository = callRepository;
+exports.Weightage_LookupService = void 0;
+class Weightage_LookupService {
+    constructor(weightageLookupRepository) {
+        this.weightageLookupRepository = weightageLookupRepository;
     }
-    getAllCalls() {
+    getAllWeightageLookup() {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.callRepository.find();
+            return this.weightageLookupRepository.find();
         });
     }
 }
-exports.CallsService = CallsService;
-exports.default = CallsService;
+exports.Weightage_LookupService = Weightage_LookupService;
+exports.default = Weightage_LookupService;

@@ -9,21 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllCalls = void 0;
+exports.getAllWeightageLookup = void 0;
 const typeorm_1 = require("typeorm");
-const calls_service_1 = require("../services/calls.service");
-const calls_1 = require("../models/entities/calls");
-const callsRepository = (0, typeorm_1.getRepository)(calls_1.Calls);
-const callsService = new calls_service_1.CallsService(callsRepository);
-function getAllCalls(req, res) {
+const weightage_LookupService_1 = require("../services/weightage_LookupService");
+const weightage_Lookup_1 = require("../models/entities/weightage_Lookup");
+const weightageLookupRepository = (0, typeorm_1.getRepository)(weightage_Lookup_1.weightage_Lookup);
+const weightageLookupService = new weightage_LookupService_1.Weightage_lookupService(weightageLookupRepository);
+function getAllWeightageLookup(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const calls = yield callsService.getAllCalls();
-            res.status(200).json(calls);
+            const weightageLookup = yield weightageLookupService.getAllWeightageLookup();
+            res.status(200).json(weightageLookup);
         }
         catch (error) {
             res.status(500).json({ error: 'Internal server error' });
         }
     });
 }
-exports.getAllCalls = getAllCalls;
+exports.getAllWeightageLookup = getAllWeightageLookup;

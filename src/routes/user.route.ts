@@ -5,8 +5,8 @@ import { User } from '../models/entities/user';
 const userRoutes = (userRepository: Repository<User>) => {
   const router = express.Router();
 
-  // Define routes for users
-  router.get('/', async (req: Request, res: Response) => {
+  // GET: Fetch all users
+  router.get('/getAllUsers', async (req, res) => {
     try {
       const users = await userRepository.find();
       res.json(users);
@@ -15,8 +15,6 @@ const userRoutes = (userRepository: Repository<User>) => {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   });
-
-  // Add more routes for users as needed
 
   return router;
 };
