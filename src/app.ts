@@ -9,7 +9,7 @@ import rootRoute from "./routes/root.route";
 import weightageLookupRoutes from "./routes/weightage_Lookup.route";
 import { weightage_Lookup } from "./models/entities/weightage_Lookup";
 import questionnairesRoutes from "./routes/Questionnaires.route";
-import { questionnaires } from "./models/entities/Questionnaires";
+import { Questionnaires } from "./models/entities/Questionnaires";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,7 +22,7 @@ async function initializeApp() {
     const userRepository = getRepository(User);
     const callRepository = getRepository(Calls);
     const weightageLookupRepository = getRepository(weightage_Lookup); // Get the repository for Weightage_Lookup
-    const  questionnairesRepository = getRepository(questionnaires);
+    const  questionnairesRepository = getRepository(Questionnaires);
 
 
     app.use("/", rootRoute); // Mount the root route at the root URL

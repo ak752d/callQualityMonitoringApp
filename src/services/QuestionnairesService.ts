@@ -1,11 +1,11 @@
 
 import { Repository } from 'typeorm';
-import { questionnaires } from '../models/entities/Questionnaires';
+import { Questionnaires } from '../models/entities/Questionnaires';
 
 export class QuestionnairesService {
-  private questionnairesRepository: Repository<questionnaires>;
+  private questionnairesRepository: Repository<Questionnaires>;
 
-  constructor(questionnairesRepository: Repository<questionnaires>) {
+  constructor(questionnairesRepository: Repository<Questionnaires>) {
     this.questionnairesRepository = questionnairesRepository;
   }
 

@@ -1,32 +1,10 @@
-
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class questionnaires extends BaseEntity {
+export class Questionnaires extends BaseEntity {
   @PrimaryGeneratedColumn()
-  questionnaire_Id!: number;
+  Questions_id!: number;
 
   @Column()
-  title: string;
-
-  @Column()
-  description: string;
-
-  @Column({ default: () => "CURRENT_TIMESTAMP" })
-  createdDate: Date;
-
-  @Column({ default: false })
-  isPublished: boolean;
-
-  constructor() {
-    super();
-    this.title = "";
-    this.description = "";
-    this.createdDate = new Date();
-    this.isPublished = false;
-  }
+  Questions!: string;
 }
-
-
-
-

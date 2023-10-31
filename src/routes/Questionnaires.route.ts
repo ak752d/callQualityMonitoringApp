@@ -1,12 +1,12 @@
 
 import express, { Router, Request, Response } from "express";
 import { Repository } from "typeorm";
-import { questionnaires } from "../models/entities/Questionnaires";
+import { Questionnaires } from "../models/entities/Questionnaires";
 
-const questionnairesRoutes = (questionnairesRepository: Repository<questionnaires>): Router => {
+const questionnairesRoutes = (questionnairesRepository: Repository<Questionnaires>): Router => {
   const router = express.Router();
 
-  // GET: Fetch all questionnaires
+
   router.get("/getAllQuestionnaires", async (req: Request, res: Response) => {
     try {
       const questionnaires = await questionnairesRepository.find();
@@ -17,7 +17,8 @@ const questionnairesRoutes = (questionnairesRepository: Repository<questionnaire
     }
   });
 
-  // Add more routes for managing questionnaires as needed
+
+
 
   return router;
 };
